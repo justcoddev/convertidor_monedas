@@ -4,36 +4,35 @@
       <div class="mb-3">
 
         <label for="cantidad" class="form-label">Ingrese cantidad</label>
-        <input type="number" class="form-control form-control-lg" id="cantidad" placeholder="Ingrese cantidad...">
+        <input type="number" class="form-control form-control-lg" [(ngModel)]="cantidad" id="cantidad"
+          placeholder="Ingrese cantidad...">
 
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-lg-6">
-      <label for="cantidad" class="form-label">Convetir de</label>
-      <select class="form-select form-select-lg" aria-label="Default select example">
+    <label for="tengo" class="form-label">Tengo</label>
+      <select class="form-select form-select-lg" id="tengo" [(ngModel)]="tengo" aria-label="Default select example">
         <!-- <option selected>Convetir de</option> -->
-        <option value="1">USD</option>
-        <option value="2">EUR</option>
-        <option value="3">LIBRA</option>
+        <option *ngFor="let moneda of monedas">{{moneda}}</option>
+
       </select>
     </div>
     <div class="col-lg-6">
-      <label for="cantidad" class="form-label">Valor</label>
-      <select class="form-select form-select-lg" aria-label="Default select example">
-        <!-- <option selected>Valor</option> -->
-        <option value="1">USD</option>
-        <option value="2">EUR</option>
-        <option value="3">LIBRA</option>
+      <label for="quiero" class="form-label">Quiero</label>
+      <select class="form-select form-select-lg" id="quiero" [(ngModel)]="quiero">
+        <!-- <option selected>Convetir de</option> -->
+        <option *ngFor="let moneda of monedas">{{moneda}}</option>
+
       </select>
     </div>
 
   </div>
 
   <H5 class="text-center mt-3">
-    <span class="badge bg-success">1000 USD</span>
+    <span class="badge bg-success">{{cantidad}} {{tengo}}</span>
     <span class="badge bg-secondary">SON</span>
-    <span class="badge bg-success">800 EUR</span>
+    <span class="badge bg-success">{{total}} {{quiero}}</span>
   </H5>
 </div>
